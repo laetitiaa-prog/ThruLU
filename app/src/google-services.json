@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "430449899672",
+    "project_id": "fyplu-2a345",
+    "storage_bucket": "fyplu-2a345.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:430449899672:android:22fcdc3a261b85dba478ed",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCionFeRPMjQG2k3mzxki8-jFIeFPQWvKc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

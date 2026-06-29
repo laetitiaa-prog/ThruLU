@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/bgDark"
+    tools:context=".MainActivity7">
+
+        <!-- ── HEADER ─────────────────────────────────────── -->
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:background="@color/surface"
+            android:gravity="center_vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <Button
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="back"
+                android:backgroundTint="@android:color/transparent">
+
+            </Button>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="FLOOR 4 — NAVIGATOR"
+                android:textColor="@color/accent"
+                android:textSize="13sp"
+                android:fontFamily="sans-serif-condensed"
+                android:letterSpacing="0.12"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tap a room to find path"
+                android:textColor="@color/textMuted"
+                android:textSize="10sp"
+                android:fontFamily="monospace"/>
+        </LinearLayout>
+
+        <!-- ── MAP CANVAS ─────────────────────────────────── -->
+        <com.example.myapplication.IsometricFloorView
+            android:id="@+id/floorView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/header"
+            app:layout_constraintBottom_toTopOf="@id/bottomPanel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- ── BOTTOM PANEL ───────────────────────────────── -->
+        <LinearLayout
+            android:id="@+id/bottomPanel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/surface"
+            android:orientation="vertical"
+            android:paddingTop="12dp"
+            android:paddingBottom="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:elevation="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Entrance selector label -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SELECT ENTRANCE"
+                android:textColor="@color/textMuted"
+                android:textSize="9sp"
+                android:fontFamily="monospace"
+                android:letterSpacing="0.18"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Entrance buttons row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+
+                <Button
+                    android:id="@+id/btnCS"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:text="CS Entrance"
+                    android:textSize="10sp"
+                    android:textAllCaps="false"
+                    android:fontFamily="monospace"
+                    android:background="@drawable/btn_entrance_active"
+                    android:textColor="@color/entranceActive"/>
+
+                <Button
+                    android:id="@+id/btnPHY"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="PHY Entrance"
+                    android:textSize="10sp"
+                    android:textAllCaps="false"
+                    android:fontFamily="monospace"
+                    android:background="@drawable/btn_entrance_normal"
+                    android:textColor="@color/textMuted"/>
+
+                <Button
+                    android:id="@+id/btnStairsLeft"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:text="Stairs L"
+                    android:textSize="10sp"
+                    android:textAllCaps="false"
+                    android:fontFamily="monospace"
+                    android:background="@drawable/btn_entrance_normal"
+                    android:textColor="@color/textMuted"/>
+
+                <Button
+                    android:id="@+id/btnStairsRight"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:text="Stairs R"
+                    android:textSize="10sp"
+                    android:textAllCaps="false"
+                    android:fontFamily="monospace"
+                    android:background="@drawable/btn_entrance_normal"
+                    android:textColor="@color/textMuted"/>
+            </LinearLayout>
+
+            <!-- Destination divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/border"
+                android:layout_marginBottom="10dp"/>
+
+            <!-- Room info -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvRoomName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No room selected"
+                        android:textColor="@color/accent"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-condensed"/>
+
+                    <TextView
+                        android:id="@+id/tvRoomDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tap any room on the map"
+                        android:textColor="@color/textMuted"
+                        android:textSize="11sp"
+                        android:fontFamily="monospace"
+                        android:layout_marginTop="2dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvDistance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/pathColor"
+                    android:textSize="12sp"
+                    android:fontFamily="monospace"
+                    android:textStyle="bold"
+                    android:layout_marginStart="8dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/NavBar"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:orientation="horizontal"
+                android:background="#FFFFFF"
+                android:elevation="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <Button
+                    android:id="@+id/event"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Event"
+                    android:textSize="11sp"
+                    android:textAllCaps="false"
+                    android:textColor="#555555"
+                    android:backgroundTint="@android:color/transparent"/>
+
+                <Button
+                    android:id="@+id/courses"
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Course"
+                    android:textSize="11sp"
+                    android:textAllCaps="false"
+                    android:textColor="#555555"
+                    android:backgroundTint="@android:color/transparent"/>
+
+                <Button
+                    android:id="@+id/campusmap"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Map"
+                    android:textSize="11sp"
+                    android:textAllCaps="false"
+                    android:textColor="#555555"
+                    android:backgroundTint="@android:color/transparent"/>
+
+                <Button
+                    android:id="@+id/infoBot"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Bot"
+                    android:textSize="11sp"
+                    android:textAllCaps="false"
+                    android:textColor="#555555"
+                    android:backgroundTint="@android:color/transparent"/>
+
+                <!-- Review is the active tab — highlighted in red -->
+                <Button
+                    android:id="@+id/review"
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Review"
+                    android:textSize="11sp"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#F32B2B"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
